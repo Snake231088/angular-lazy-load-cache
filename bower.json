@@ -1,0 +1,29 @@
+{
+  "name": "angular-lazy-load-cache",
+  "homepage": "https://github.com/Snake231088/angular-lazy-load-cache",
+  "authors": [
+    "Diego Verì <solidboss@gmail.com>"
+  ],
+  "description": "Plugin for angular with image lazy load and image cache with imgcache.js",
+  "main": "angular-lazy-load-cache.js",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "ionic",
+    "imgcache",
+    "lazyload",
+    "lazy",
+    "load"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "imgcache.js": "~0.7.6"
+  }
+}
