@@ -72,7 +72,6 @@ angular.module('angularLazyLoadCache')
 					imageLazySrc: "@"
 				},
 				link: function ($scope, $element, $attributes) {
-					console.log("Entrato");
 					if (!$attributes.imageLazyDistanceFromBottomToLoad) {
 						$attributes.imageLazyDistanceFromBottomToLoad = 0;
 					}
@@ -87,7 +86,6 @@ angular.module('angularLazyLoadCache')
 					}
 
 					$scope.$watch('imageLazySrc', function (oldV, newV) {
-						console.log("Cambio");
 						if(loader)
 							loader.remove();
 						if ($attributes.imageLazyLoader) {
@@ -95,7 +93,6 @@ angular.module('angularLazyLoadCache')
 							$element.after(loader);
 						}
 						var deregistration = $scope.$on('lazyScrollEvent', function () {
-								//    console.log('scroll');
 								if (isInView()) {
 									loadImage();
 									deregistration();
@@ -104,16 +101,13 @@ angular.module('angularLazyLoadCache')
 						);
 						$timeout(function () {
 							if(isInView()) {
-								console.log("in View");
 								loadImage();
 								deregistration();
 							} else {
-								console.log("no in View")
 							}
 						}, 1000);
 					});
 					var deregistration = $scope.$on('lazyScrollEvent', function () {
-							// console.log('scroll');
 							if (isInView()) {
 								loadImage();
 								deregistration();
@@ -139,10 +133,8 @@ angular.module('angularLazyLoadCache')
 							ImgCache.isCached(src, function(path, success) {
 
 								if (success) {
-									console.log("cache: " + src);
 									setImg(type, el, src);
 								} else {
-									console.log("no cache: " + src);
 									ImgCache.cacheFile(src, function() {
 										setImg(type, el, src);
 									});
@@ -153,7 +145,6 @@ angular.module('angularLazyLoadCache')
 					}
 
 					function loadImage() {
-						console.log("loadImage");
 						//Bind "load" event
 						$element.bind("load", function (e) {
 							if ($attributes.imageLazyLoader) {
